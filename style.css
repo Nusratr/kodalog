@@ -1,0 +1,30 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.kodalog{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	height: 70px;
+	width: 70px;
+	background-image: 
+url(http://icons.iconarchive.com/icons/kxmylo/simple/512/utilities-system-monitor-icon.png);
+	background-size: cover;
+	background-position: center;
+	border-radius: 100%;
+	z-index: 500;
+}
+
+.kodalog-console{	
+	position: absolute;
+	background-color: red;
+	z-index: 400;
+	width: 100%;
+	height: 100%;
+	&#etkin{
+		top: 105%;
+	}
+}
