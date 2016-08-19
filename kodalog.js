@@ -13,7 +13,13 @@
 		kodalog(obj);
 	};
 	var kodalog = function(obj) {
-		alert("asdasd");	
+		alert(obj);	
 	};
 
+	window.onload = function () {
+		document.querySelector('.kodalog').addEventListener("click", function(){
+			var kClass = document.querySelector('.kodalog-console').id;
+			document.querySelector('.kodalog-console').id = kClass == "" ? "etkin" : "";
+		}, true);
+	};
 })();
