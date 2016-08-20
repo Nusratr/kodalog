@@ -15,7 +15,7 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 100%;
-    z-index: 500;
+    z-index: 600;
 }
 
 .kodalog {
@@ -170,19 +170,31 @@ body {
     margin-left: 5px;
     margin-right: 10px;
     margin-top: 2px;
+    text-align: right;
 }
 
 .kl-console-input {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+    position: absolute;
+    z-index: 500;
+    width: 100%;
+    bottom: 0px;
+    padding: 5px 10px;
+    border-top: 1px solid #888;
 }
 
-.kl-console-input textarea, .kl-console-input textarea:focus {
+.kl-console-input span{
+    color: #555;
+}
+
+.kl-console-input input, .kl-console-input input:focus {
     width: 100%;
     border: none;
     resize: none;
     outline: none !important;
+    padding: 0px 5px;
     letter-spacing: -0.4px;
 }
 
@@ -198,7 +210,7 @@ body {
 .kl-console-error p {
     margin: 0px;
     margin-left: 5px;
-    padding: 0px;
+    padding: 4px 2px;
     flex: 3;
     color: #f00;
 }
@@ -221,7 +233,7 @@ body {
 .kl-console-log p {
     margin: 0px;
     margin-left: 5px;
-    padding: 0px;
+    padding: 4px 2px;
     flex: 3;
     color: #000;
 }

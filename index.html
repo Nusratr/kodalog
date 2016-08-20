@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
-	<script src="kodalog.js"></script>
-	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 		<div class="kodalog-icon"></div>
@@ -40,26 +39,15 @@
 				</ul>
 			</div>
 			<div class="kl-console">
-				<div class="kl-console-error">
-					<p>
-						VM9584:1 Uncaught ReferenceError: a is not defined(…)
-					</p>
-					<span>
-						kodalog.js:12
-					</span>
-				</div>
-				<div class="kl-console-log">
-					<p>
-						VM9584:1 Uncaught ReferenceError: a is not defined(…)
-					</p>
-					<span>
-						kodalog.js:12
-					</span>
-				</div>
-				<div class="kl-console-input">
-					<span>></span> <textarea id="klConsole" spellcheck="false"></textarea>
-				</div>
+
 			</div>
 		</div>
+		<div class="kl-console-input">
+			<span>></span> <input id="klConsole" placeholder="Type a command..."></input>
+		</div>
+		<script src="kodalog.js"></script>
+		<script>
+			console.log("test");
+		</script>
 </body>
 </html>
