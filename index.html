@@ -1,13 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Document</title>
-		<script src="kodalog.js"></script>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="kodalog"></div>
-		<div class="kodalog-console"></div>
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="kodalog.js"></script>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+		<div class="kodalog-icon"></div>
+		<div class="kodalog" id="activeKodalog">
+			<div class="kl-tab">
+				<ul>
+					<li class="kl-active">
+						All
+					</li>
+					<li>
+						Error
+					</li>
+					<li>
+						Log
+					</li>
+					<li>
+						Warning
+					</li>
+				</ul>
+			</div>
+			<div class="kl-setting">
+				<ul>
+					<li>
+						clear
+					</li>
+					<li>
+						<select>
+							<option selected disabled>
+								Filter
+							</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			<div class="kl-console">
+				<div class="kl-console-error">
+					<p>
+						VM9584:1 Uncaught ReferenceError: a is not defined(…)
+					</p>
+					<span>
+						kodalog.js:12
+					</span>
+				</div>
+				<div class="kl-console-log">
+					<p>
+						VM9584:1 Uncaught ReferenceError: a is not defined(…)
+					</p>
+					<span>
+						kodalog.js:12
+					</span>
+				</div>
+				<div class="kl-console-input">
+					<span>></span> <textarea id="klConsole" spellcheck="false"></textarea>
+				</div>
+			</div>
+		</div>
+</body>
 </html>

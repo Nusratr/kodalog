@@ -1,30 +1,234 @@
-body{
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden;
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: "Helvetica"
 }
 
-.kodalog{
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	height: 70px;
-	width: 70px;
-	background-image: url(http://icons.iconarchive.com/icons/kxmylo/simple/512/utilities-system-monitor-icon.png);
-	background-size: cover;
-	background-position: center;
-	border-radius: 100%;
-	z-index: 500;
+.kodalog-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 70px;
+    width: 70px;
+    background-image: url(icon.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    z-index: 500;
 }
 
-.kodalog-console{	
-	position: absolute;
-	background-color: red;
-	z-index: 400;
-	width: 100%;
-	height: 100%;
+.kodalog {
+    position: fixed;
+    background-color: #fff;
+    z-index: 400;
+    width: 0px;
+    height: 0px;
+    right: 0px;
+    bottom: 0px;
+    transition: 100ms;
+    overflow: hidden;
 }
 
-.kodalog-console#etkin{
-	top: 105%;
+.kodalog#activeKodalog {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.kl-tab {
+    background: #f3f3f3;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.kl-tab ul {
+    margin: 5px;
+    padding: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.kl-tab ul li {
+    display: inline-block;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 7px;
+    flex: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin-left: 1px;
+    margin-right: 1px;
+    background: #FFAE7F;
+    color: #774122;
+    border-radius: 2px;
+}
+
+.kl-tab ul li:active {
+    background: #774122;
+    color: #EEE;
+    border-bottom: 3px solid #4F81CC;
+}
+
+.kl-tab ul li.kl-active {
+    background: #774122;
+    color: #EEE;
+    border-bottom: 3px solid #4F81CC;
+}
+
+.kl-setting {
+    background: #fff;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.kl-setting ul {
+    margin: 5px;
+    padding: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.kl-setting ul li {
+    display: inline-block;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 7px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin-left: 1px;
+    margin-right: 1px;
+    background: #FFAE7F;
+    color: #774122;
+    border-radius: 2px;
+}
+
+.kl-setting ul li:last-child {
+    flex: 2;
+    padding: 1px;
+    background: none;
+}
+
+.kl-setting ul li:active {
+    background: #FF4C4C;
+    color: #FFF;
+}
+
+.kl-setting ul li:last-child select, .kl-setting ul li:last-child select:focus {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed #ccc;
+    outline: none !important;
+    background: none;
+}
+
+.kl-setting ul li:last-child:active {
+    background: none;
+}
+
+.kl-console {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    font-family: monospace;
+    overflow-y: scroll;
+    top: 87px;
+    bottom: 0px;
+}
+
+.kl-console::-webkit-scrollbar,
+.kl-console::-webkit-scrollbar
+{
+	width: 6px;
+	opacity: 0;
+}
+
+.kl-console::-webkit-scrollbar-thumb,
+.kl-console::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background: #e4e4e4;
+}
+
+.kl-console span {
+    color: blue;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.kl-console-input {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.kl-console-input textarea, .kl-console-input textarea:focus {
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none !important;
+    letter-spacing: -0.4px;
+}
+
+.kl-console-error {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    background: #fff0f0;
+    border: 1px solid #ffd7d7;
+    border-top: none;
+}
+
+.kl-console-error p {
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
+    flex: 3;
+    color: #f00;
+}
+
+.kl-console-error span {
+    flex: 1;
+    text-decoration: underline;
+    color: #666;
+    font-weight: normal;
+}
+
+.kl-console-log {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+}
+
+.kl-console-log p {
+    margin: 0px;
+    margin-left: 5px;
+    padding: 0px;
+    flex: 3;
+    color: #000;
+}
+
+.kl-console-log span {
+    flex: 1;
+    text-decoration: underline;
+    color: #666;
+    font-weight: normal;
 }
