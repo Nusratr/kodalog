@@ -13,19 +13,45 @@
 		newErr.innerHTML = "<p>"+msg+"</p><span></span>"; 
 		klConsoleDiv.appendChild(newErr);
 	}
+	function newWarn(msg){
+		var klConsoleDiv = document.querySelector(".kl-console");
+		var newErr = document.createElement("div");
+		newErr.className = "kl-console-warn";
+		newErr.innerHTML = "<p>"+msg+"</p><span></span>"; 
+		klConsoleDiv.appendChild(newErr);
+	}
+	function newInfo(msg){
+		var klConsoleDiv = document.querySelector(".kl-console");
+		var newErr = document.createElement("div");
+		newErr.className = "kl-console-info";
+		newErr.innerHTML = "<p>"+msg+"</p><span></span>"; 
+		klConsoleDiv.appendChild(newErr);
+	}
 	window.onerror = function(err, url, lineNum) {
-		kodalog(err, url, lineNum);
+		kodalog(err, url, lineNum, "error");
 	};
 	nativeLog = console.log.bind(console);
 	console.log = function(obj, url, lineNum) {
 		nativeLog(obj);
-		kodalog(obj, url, lineNum);
+		kodalog(obj, url, lineNum, "log");
 	};
-	var kodalog = function(obj, url, lineNum) {
-		if(url && lineNum){ // eğer hata ise
+	console.warn = function(obj, url, lineNum) {
+		nativeLog(obj);
+		kodalog(obj, url, lineNum, "warn");
+	};
+	console.info = function(obj, url, lineNum) {
+		nativeLog(obj);
+		kodalog(obj, url, lineNum, "info");
+	};
+	var kodalog = function(obj, url, lineNum, type) {
+		if(type == "error"){
 			newError(obj, url, lineNum);
-		}else{
+		}else if(type == "log"){
 			newLog(obj);
+		}else if(type == "warn"){
+			newWarn(obj);
+		}else if(type == "info"){
+			newInfo(obj);
 		}
 	};
 	window.onload = function () {

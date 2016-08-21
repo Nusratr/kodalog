@@ -11,7 +11,7 @@ body {
     right: 5px;
     height: 70px;
     width: 70px;
-    background-image: url(icon.png);
+    background-image: url(img/icon.png);
     background-size: cover;
     background-position: center;
     border-radius: 100%;
@@ -205,6 +205,19 @@ body {
     background: #fff0f0;
     border: 1px solid #ffd7d7;
     border-top: none;
+    padding-left: 23px;
+}
+
+.kl-console-error:before{
+    content: "";
+    height: 14px;
+    width: 14px;
+    margin-top: 5px;
+    margin-left: -15px;
+    position: absolute;
+    background-image: url(img/error.png);
+    background-size: cover;
+    background-position: center;
 }
 
 .kl-console-error p {
@@ -239,6 +252,81 @@ body {
 }
 
 .kl-console-log span {
+    flex: 1;
+    text-decoration: underline;
+    color: #666;
+    font-weight: normal;
+}
+
+.kl-console-warn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+    padding-left: 23px;
+}
+
+.kl-console-warn:before{
+    content: "";
+    height: 16px;
+    width: 16px;
+    margin-top: 3px;
+    margin-left: -15px;
+    position: absolute;
+    background-image: url(img/warn.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.kl-console-warn p {
+    margin: 0px;
+    margin-left: 5px;
+    padding: 4px 2px;
+    flex: 3;
+    font-weight: bolder;
+    color: #f1c40f;
+}
+
+.kl-console-warn span {
+    flex: 1;
+    text-decoration: underline;
+    color: #666;
+    font-weight: normal;
+}
+
+.kl-console-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+    padding-left: 23px;
+}
+
+.kl-console-info:before{
+    content: "";
+    height: 15px;
+    width: 15px;
+    margin-top: 5px;
+    margin-left: -15px;
+    position: absolute;
+    background-image: url(img/info.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.kl-console-info p {
+    margin: 0px;
+    margin-left: 5px;
+    padding: 4px 2px;
+    flex: 3;
+    color: #4F81CC;
+}
+
+.kl-console-info span {
     flex: 1;
     text-decoration: underline;
     color: #666;
