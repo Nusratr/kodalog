@@ -55,18 +55,46 @@
 		}
 	};
 	window.onload = function () {
-		document.querySelector('.kodalog-icon').addEventListener("click", function () {
-			var kClass = document.querySelector('.kodalog').id;
-			document.querySelector('.kodalog').id = kClass == "" ? "activeKodalog" : "";
-		}, true);
-		document.querySelector('.kl-console').addEventListener("click", function () {
-			document.getElementById('klConsole').focus();
-		}, true);
+		draggable('.kodalog-icon');
+		
+		document.querySelector('.kodalog-icon').addEventListener("mousedown", function () {
+			begin = Date.now();
+		});
+
+		document.querySelector('.kodalog-icon').addEventListener("mouseup", function () {
+			var end = Date.now();
+			if (end-begin < 200){
+				var kClass = document.querySelector('.kodalog').id;
+				document.querySelector('.kodalog').id = kClass == "" ? "activeKodalog" : "";	
+			}
+		});
+		document.querySelector('#klConsole').focus();
+		document.querySelector('#klConsole').addEventListener("keydown", function (e) {
+			if (e.keyCode == 13 && !e.shiftKey) {
+				e.preventDefault();
+			}
+		});
 	};
 
-	document.querySelector('#klConsole').addEventListener("keydown", function (e) {
-		if (e.keyCode == 13 && !e.shiftKey) {
-			e.preventDefault();
+	var dragObj = null;
+	function draggable(el) {
+		var obj = document.querySelector(el);
+		obj.style.position = "absolute";
+		obj.onmousedown = function () {
+			dragObj = obj;
 		}
-	});
+	}
+	document.onmouseup = function (e) {
+		dragObj = null;
+	};
+	document.onmousemove = function (e) {
+		var x = e.pageX + -35;
+		var y = e.pageY + -35;
+		if (dragObj == null){
+			return;
+		}
+		dragObj.style.left = x + "px";
+		dragObj.style.top = y + "px";
+	};
+
 })();

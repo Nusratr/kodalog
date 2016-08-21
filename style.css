@@ -7,8 +7,8 @@ body {
 
 .kodalog-icon {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 10px;
+    right: 10px;
     height: 70px;
     width: 70px;
     background-image: url(img/icon.png);
@@ -194,21 +194,15 @@ body {
     font-size: 10pt;
 }
 
-#klConsole:empty:before {
-    content: attr(data-placeholder);
-    color: grey;
-    font-style: oblique;
-    display: inline-block;
-}
-
 .kl-console-textarea #klConsole, .kl-console-textarea #klConsole:focus {
     width: 100%;
     border: none;
     outline: none !important;
     color: #666;
     padding: 0px 5px;
-    /*letter-spacing: 4px;*/
+    cursor: text;
 }
+
 
 .kl-console-error {
     display: -webkit-box;
