@@ -5,28 +5,28 @@
 
 (function () {
 	function newError(err, url, lineNum) {
-		var klConsoleDiv = document.querySelector(".kl-console");
+		var klConsoleDiv = document.querySelector(".kl-console").querySelector(".kl-console-result");
 		var newErr = document.createElement("div");
 		newErr.className = "kl-console-error";
 		newErr.innerHTML = "<p>" + err + "</p><span>" + url + ":" + lineNum + "</span>";
 		klConsoleDiv.appendChild(newErr);
 	}
 	function newLog(msg) {
-		var klConsoleDiv = document.querySelector(".kl-console");
+		var klConsoleDiv = document.querySelector(".kl-console").querySelector(".kl-console-result");
 		var newErr = document.createElement("div");
 		newErr.className = "kl-console-log";
 		newErr.innerHTML = "<p>" + msg + "</p><span></span>";
 		klConsoleDiv.appendChild(newErr);
 	}
 	function newWarn(msg) {
-		var klConsoleDiv = document.querySelector(".kl-console");
+		var klConsoleDiv = document.querySelector(".kl-console").querySelector(".kl-console-result");
 		var newErr = document.createElement("div");
 		newErr.className = "kl-console-warn";
 		newErr.innerHTML = "<p>" + msg + "</p><span></span>";
 		klConsoleDiv.appendChild(newErr);
 	}
 	function newInfo(msg) {
-		var klConsoleDiv = document.querySelector(".kl-console");
+		var klConsoleDiv = document.querySelector(".kl-console").querySelector(".kl-console-result");
 		var newErr = document.createElement("div");
 		newErr.className = "kl-console-info";
 		newErr.innerHTML = "<p>" + msg + "</p><span></span>";
@@ -47,6 +47,10 @@
 	console.info = function (obj, url, lineNum) {
 		nativeLog(obj);
 		kodalog(obj, url, lineNum, "info");
+	};
+	console.error = function (obj, url, lineNum) {
+		nativeLog(obj);
+		kodalog(obj, url, lineNum, "error");
 	};
 	var kodalog = function (obj, url, lineNum, type) {
 		if (type == "error") {

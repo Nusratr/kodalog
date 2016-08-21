@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Kodalog</title>
+	<script src="kodalog.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,11 +39,24 @@
 					</li>
 				</ul>
 			</div>
-			<div class="kl-console"></div>
-			<div class="kl-console-textarea">
-				<div id="klConsole" data-placeholder="Typing a command..." contentEditable="true"></div>
+			<div class="kl-console">
+				<div class="kl-console-result">
+					
+				</div>
+				<div class="kl-console-textarea">
+					<div id="klConsole" data-placeholder="Typing a command..." contentEditable="true"></div>
+				</div>
 			</div>
 		</div>
-		<script src="kodalog.js"></script>
+		<script type="text/javascript">
+		for (var i = 0; i < 50; i++) {
+			if (i % 2 == 0)
+				console.warn("Bu bir Warning");
+			else if (i % 3 == 0)
+				console.log("Bu bir Log");
+			else if (i % 5 == 0)
+				console.error("Bu bir Error");
+		}
+		</script>
 </body>
 </html>

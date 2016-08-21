@@ -147,9 +147,10 @@ body {
     overflow-y: scroll;
     top: 87px;
     bottom: 0px;
+    position: absolute;
 }
 
-.kl-console div{
+.kl-console .kl-console-result div{
     padding: 2px 23px;
 }
 
