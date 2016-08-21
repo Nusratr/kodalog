@@ -1,3 +1,8 @@
+/*
+ * Kodalog Javascript Console Plugin
+ * Start : 2016-08-19 23:41
+*/
+
 (function () {
 	function newError(err, url, lineNum) {
 		var klConsoleDiv = document.querySelector(".kl-console");
