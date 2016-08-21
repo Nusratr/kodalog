@@ -90,11 +90,26 @@
 	document.onmousemove = function (e) {
 		var x = e.pageX + -35;
 		var y = e.pageY + -35;
+		var pageHeight = window.innerHeight;
+		var pageWidth = window.innerWidth;
+		// console.log(x + " " + y);
 		if (dragObj == null){
 			return;
 		}
-		dragObj.style.left = x + "px";
-		dragObj.style.top = y + "px";
+		else if(x <= 1 || y <= 1){
+			dragObj.style.left = x <= 1 ? "5px" : x+"px"; 
+			dragObj.style.top = y <= 1 ? "5px" : y+"px";
+			if(x >= (pageWidth-71)){
+				dragObj.style.left = x >= (pageWidth-71) ? (pageWidth-74)+"px" : x+"px";
+			}else if(y >= (pageHeight-71)){
+				dragObj.style.top = y >= (pageHeight-71) ? (pageHeight-74)+"px" : y+"px";	
+			}
+		}else if(y >= (pageHeight-71) || x >= (pageWidth-71)){
+			dragObj.style.top = y >= (pageHeight-71) ? (pageHeight-74)+"px" : y+"px";
+			dragObj.style.left = x >= (pageWidth-71) ? (pageWidth-74)+"px" : x+"px";
+		}else{
+			dragObj.style.left = x + "px";
+			dragObj.style.top = y + "px";
+		}
 	};
-
 })();
